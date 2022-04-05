@@ -1,0 +1,11 @@
+﻿@page
+@model ToDo.Pages.AddTodoModel
+@{
+}
+
+<form method="post">
+    <input asp-for="todo.TodoName" />
+    <input asp-for="todo.TodoDescription" />
+    <input asp-for="todo.Status" />
+    <input type="submit" value="Add Todo"/>
+</form>
