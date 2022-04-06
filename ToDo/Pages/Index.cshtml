@@ -9,23 +9,80 @@
         <h2>Incomplete Todo List</h2>
     </div>
     <div class="accordion" id="accordion">
-        @foreach (ToDo item in Model.Todos)
-        {
+        @{
+            int counter = 0;
+            var active = "show";
+        }
+        @foreach (ToDo item in Model.IncompleteTodos)
+        { if(counter != 0)
+                {
+                    active = "";
+                }
             <div class="card">
-                <div class="card-header" id="headingOne">
+                <div class="card-header" id="heading-@item.Id">
                     <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            @item.TodoName
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-@item.Id" aria-expanded="true" aria-controls="collapse-@item.Id">
+                            @item.TodoName @item.Status
                         </button>
                     </h5>
+                    <form method="post">
+                        <input type="checkbox" name="Status" value="complete" />
+                        <input type="hidden" name="TodoName" value="@item.TodoName"/>
+                        <input type="hidden" name="TodoDescription" value="@item.TodoDescription"/>
+                        <input type="hidden" name="Id" value="@item.Id"/>
+                        <input type="submit" value="Update" />
+                    </form>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapse-@item.Id" class="collapse @active" aria-labelledby="heading-@item.Id" data-parent="#accordion">
                     <div class="card-body">
                         <p>@item.TodoDescription</p>
                     </div>
                 </div>
             </div>
+            counter++;
+        }
+    </div>
+</section>
+
+<section class="todo-wrapper">
+    <div class="todo-wrapper__title">
+        <h2>Complete Todo List</h2>
+    </div>
+    <div class="accordion" id="accordion">
+        @{
+            int complete_counter = 0;
+            var complete_active = "show";
+        }
+        @foreach (ToDo item in Model.CompleteTodos)
+        {
+            if (counter != 0)
+            {
+                active = "";
+            }
+            <div class="card">
+                <div class="card-header" id="heading-@item.Id">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-@item.Id" aria-expanded="true" aria-controls="collapse-@item.Id">
+                            @item.TodoName @item.Status
+                        </button>
+                    </h5>
+                    <form method="post">
+                        <input type="checkbox" name="Status" value="incomplete" />
+                        <input type="hidden" name="TodoName" value="@item.TodoName" />
+                        <input type="hidden" name="TodoDescription" value="@item.TodoDescription" />
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <input type="submit" value="Update" />
+                    </form>
+                </div>
+
+                <div id="collapse-@item.Id" class="collapse @complete_active" aria-labelledby="heading-@item.Id" data-parent="#accordion">
+                    <div class="card-body">
+                        <p>@item.TodoDescription</p>
+                    </div>
+                </div>
+            </div>
+            complete_counter++;
         }
     </div>
 </section>
