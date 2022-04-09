@@ -3,9 +3,29 @@
 @{
 }
 
-<form method="post">
-    <input asp-for="todo.TodoName" />
-    <input asp-for="todo.TodoDescription" />
-    <input asp-for="todo.Status" />
-    <input type="submit" value="Add Todo"/>
-</form>
+<section class="add-todo-wrapper">
+    <div class="container">
+        <div class="add-todo-title__wrap">
+            <h1>Add Todo</h1>
+        </div>
+        <div class="todo-form__wrap">
+            <form method="post">
+                <div class="form-group">
+                    <input asp-for="todo.TodoName" placeholder="Todo Name" required />
+                </div>
+                <div class="form-group">
+                    <input asp-for="todo.TodoDescription" placeholder="Todo Description" required />
+                </div>
+                <div class="form-group">
+                    <select asp-for="todo.Status">
+                        <option value="complete">Complete</option>
+                        <option value="incomplete">Incomplete</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add Todo" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

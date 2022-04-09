@@ -70,8 +70,50 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.todo-cta-wrapper {
+    padding: 2rem 0 1rem 0;
+}
+
+.todo-wrapper {
+    padding-top: 2.5rem;
+}
+
 .todo-wrapper .accordion .card .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.todo-wrapper .todo-wrapper__title {
+    padding-bottom: 1rem;
+}
+
+.todo-wrapper .accordion .card .card-header h5 button{
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: #000;
+}
+
+.add-todo-wrapper .add-todo-title__wrap {
+    padding: 1rem 0 1rem 0;
+}
+
+.add-todo-wrapper .todo-form__wrap {
+    max-width: 500px;
+}
+
+.add-todo-wrapper .todo-form__wrap .form-group input {
+    border: 1px solid #e5e5e5;
+}
+
+.add-todo-wrapper .todo-form__wrap .form-group input,
+.add-todo-wrapper .todo-form__wrap .form-group select {
+    width: 100%;
+    min-height: 40px;
+    border-radius: 6px;
+    padding: 10px;
+}
+.add-todo-wrapper .todo-form__wrap .form-group select {
+    height: 40px;
 }
