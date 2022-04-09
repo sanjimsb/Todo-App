@@ -10,6 +10,7 @@
         </div>
         <div class="todo-form__wrap">
             <form method="post">
+                <input type="hidden" name="AddedDate" value="@DateTime.Now" />
                 <div class="form-group">
                     <input asp-for="todo.TodoName" placeholder="Todo Name" required />
                 </div>

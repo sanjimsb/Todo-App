@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ToDo_DB_Migrations.Migrations
 {
-    public partial class dbmigrate : Migration
+    public partial class AddedDateonthemodels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +15,8 @@ namespace ToDo_DB_Migrations.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     TodoName = table.Column<string>(type: "TEXT", nullable: true),
                     TodoDescription = table.Column<string>(type: "TEXT", nullable: true),
-                    Status = table.Column<string>(type: "TEXT", nullable: true)
+                    Status = table.Column<string>(type: "TEXT", nullable: true),
+                    AddedDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

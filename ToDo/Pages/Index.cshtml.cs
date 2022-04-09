@@ -33,7 +33,7 @@ namespace ToDo.Pages
         {
             if (Id == 0)
             {
-                ViewData["todo"] = _db.ToDos;
+                //ViewData["todo"] = _db.ToDos;
                 var incompleteTodos = _db.ToDos.Select(todo => todo).Where(todo => todo.Status == "incomplete");
                 IncompleteTodos = incompleteTodos.ToList();
                 var completeTodos = _db.ToDos.Select(todo => todo).Where(todo => todo.Status == "complete");

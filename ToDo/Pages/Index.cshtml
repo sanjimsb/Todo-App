@@ -30,7 +30,7 @@
                     <div class="card-header" id="heading-@item.Id">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-@item.Id" aria-expanded="true" aria-controls="collapse-@item.Id">
-                                @item.TodoName
+                                @item.TodoName <span>Date: @item.AddedDate.Date.ToString("dd MMM yyyy")</span>
                             </button>
                         </h5>
                         <form method="post">
@@ -38,6 +38,7 @@
                                 Mark Complete
                             </label>
                             <input type="checkbox" name="Status" value="complete" />
+                            <input type="hidden" name="AddedDate" value="@item.AddedDate" />
                             <input type="hidden" name="TodoName" value="@item.TodoName" />
                             <input type="hidden" name="TodoDescription" value="@item.TodoDescription" />
                             <input type="hidden" name="Id" value="@item.Id" />
@@ -79,7 +80,7 @@
                     <div class="card-header" id="heading-@item.Id">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-@item.Id" aria-expanded="true" aria-controls="collapse-@item.Id">
-                                @item.TodoName
+                                @item.TodoName <span>Date: @item.AddedDate.Date.ToString("dd MMM yyyy")</span>
                             </button>
                         </h5>
                         <form method="post">
@@ -88,6 +89,7 @@
                             </label>
                             <input type="checkbox" name="Status" value="incomplete" />
                             <input type="hidden" name="TodoName" value="@item.TodoName" />
+                            <input type="hidden" name="AddedDate" value="@item.AddedDate" />
                             <input type="hidden" name="TodoDescription" value="@item.TodoDescription" />
                             <input type="hidden" name="Id" value="@item.Id" />
                             <input type="submit" value="Update" class="btn btn-primary" />
